@@ -3,6 +3,16 @@ import streamlit as st
 import pickle
 import numpy as np
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://i2.wp.com/odishabytes.com/wp-content/uploads/2019/03/creditcards-5bfc33c246e0fb00517d742a.jpg?resize=680%2C430&ssl=1");
+background-size: cover;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 # Loading the saved Model
 model = pickle.load(open("final_model.pkl", "rb"))
 
@@ -21,7 +31,7 @@ def predict_default(features):
 def main():
 
     html_temp = """
-        <div style = "background-color: #f4da8f; padding: 10px;">
+        <div style = "background-color: #4f8bf9; padding: 10px;">
             <center><h1>CREDIT CARD DEFAULT PREDICTION</h1></center>
         </div><br>
     """
@@ -85,7 +95,7 @@ def main():
         # print(probability[:,1][0])
         if prediction[0] == 1:
             # counselling_html = """
-            #     <div style = "background-color: #fa7d7a; font-weight:bold;padding:10px;border-radius:7px;">
+            #     <div style = "background-color: #f8d7da; font-weight:bold;padding:10px;border-radius:7px;">
             #         <p style = 'color: #721c24;'>This account will be defaulted with a probability of {round(np.max(probability)*100, 2))}%.</p>
             #     </div>
             # """
